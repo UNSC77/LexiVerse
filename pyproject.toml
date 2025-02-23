@@ -1,0 +1,25 @@
+
+[project]
+name = "python-template"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+requires-python = ">=3.11"
+
+[tool.poetry]
+name = "python-template"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.11"
+colorama = ">=0.4.6"
+noise = ">=1.2.2"
+numpy = ">=2.2.3"
+openai = ">=1.60.2"
+pygame = ">=2.6.1"
+requests = "2.28.1"
+stl = ">=0.0.3"
+transformers = ">=4.49.0"
+torch = "*"
