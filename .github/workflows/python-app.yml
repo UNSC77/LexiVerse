@@ -34,15 +34,30 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Create tests directory if it does not exist
+    - name: Check if tests directory exists
       run: |
-        if [ ! -d "tests" ]; then
+        if [ -d "tests" ]; then
+          echo "The tests directory exists."
+        else
           echo "The tests directory does not exist. Creating the tests directory."
           mkdir tests
-        else
-          echo "The tests directory exists."
         fi
     - name: Add sample test file
       run: |
         echo "Adding a sample test file to the tests directory."
-        echo "
+        echo "def test_sample(): assert True" > tests/test_sample.py
+    - name: List test files
+      run: |
+        echo "Listing test files in the tests/ directory:"
+        ls -alh tests/
+        echo "Listing all files in the repository:"
+        ls -alh
+    - name: Check pytest version and config
+      run: |
+        echo "Pytest version:"
+        pytest --version
+        echo "Pytest config:"
+        pytest --help
+    - name: Test with pytest
+      run: |
+        pytest -v --maxfail=1 --disable-warnings
