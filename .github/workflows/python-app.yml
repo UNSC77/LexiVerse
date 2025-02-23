@@ -37,7 +37,9 @@ jobs:
     - name: List test files
       run: |
         echo "Listing test files in the tests/ directory:"
-        ls -R tests/
+        ls -alh tests/
+        echo "Listing all files in the repository:"
+        ls -alh
     - name: Check pytest version and config
       run: |
         echo "Pytest version:"
