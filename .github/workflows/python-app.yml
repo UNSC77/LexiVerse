@@ -38,6 +38,12 @@ jobs:
       run: |
         echo "Listing test files in the tests/ directory:"
         ls -R tests/
+    - name: Check pytest version and config
+      run: |
+        echo "Pytest version:"
+        pytest --version
+        echo "Pytest config:"
+        pytest --help
     - name: Test with pytest
       run: |
         pytest -v --maxfail=1 --disable-warnings
